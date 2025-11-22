@@ -1,0 +1,5 @@
+che__/
+venv/
+*.pyc
+db/habits.db
+.env
