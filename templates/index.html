@@ -4,21 +4,19 @@
     <meta charset="utf-8">
     <title>Habit Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Load styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <h1>Habit Tracker</h1>
 
-    <!-- Motivational Quote Section -->
+    <!-- The quotes -->
     <div id="quoteSection">
         <h2>Motivational Quote</h2>
         <p id="quote">"{{ quote }}"</p>
         <p id="quoteAuthor">- {{ author }}</p>
     </div>
 
-    <!-- Add Habit Section -->
+    <!-- Adding the habits -->
     <div id="addHabit">
         <input type="text" id="habitName" placeholder="Habit Name">
         <select id="frequency">
@@ -28,7 +26,7 @@
         <button onclick="addHabit()">Add Habit</button>
     </div>
 
-    <!-- Habit Table -->
+    <!-- The database -->
     <table id="habitTable">
         <thead>
             <tr>
@@ -40,8 +38,6 @@
         </thead>
         <tbody></tbody>
     </table>
-
-    <!-- Load JS -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
