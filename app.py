@@ -10,7 +10,7 @@ os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 
 QUOTE_API_URL = "https://zenquotes.io/api/random"
 
-# Initialize database
+# The making of the database
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
@@ -27,7 +27,7 @@ def init_db():
 
 init_db()
 
-# Fetch quote from API
+# Bring the API quotes
 def fetch_quote():
     try:
         res = requests.get(QUOTE_API_URL, timeout=5)
@@ -43,15 +43,11 @@ def fetch_quote():
 def index():
     quote, author = fetch_quote()
     return render_template("index.html", quote=quote, author=author)
-
-# API route for JS quote fetch
 @app.route("/api/quote")
 def get_quote():
     quote, author = fetch_quote()
     return jsonify({"quote": quote, "author": author})
 
-
-# API routes for habits
 @app.route("/api/habits", methods=["GET", "POST", "PUT", "DELETE"])
 def habits():
     conn = sqlite3.connect(DB_PATH)
